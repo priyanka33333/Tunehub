@@ -50,13 +50,8 @@ public class UsersController {
 			} else {
 				Users user = service.getUser(email);
 				boolean userStatus = user.isPremium();
-				List<Song> songsList;
-				try {
-					songsList = SongService.fetchAllSongs();
-				} catch (Exception e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				List<Song> songsList = SongService.fetchAllSongs();
+				
 				model.addAttribute("songs", songsList);
 
 				model.addAttribute("isPremium", userStatus);
